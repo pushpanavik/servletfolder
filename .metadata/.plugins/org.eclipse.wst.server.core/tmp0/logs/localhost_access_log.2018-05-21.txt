@@ -1,0 +1,12 @@
+127.0.0.1 - - [21/May/2018:15:58:47 +0530] "GET / HTTP/1.1" 404 1073
+127.0.0.1 - - [21/May/2018:15:58:48 +0530] "GET /WebApplication/ HTTP/1.1" 200 449
+127.0.0.1 - - [21/May/2018:15:58:52 +0530] "POST /WebApplication/goLogin HTTP/1.1" 200 -
+127.0.0.1 - - [21/May/2018:16:24:33 +0530] "GET / HTTP/1.1" 404 1073
+127.0.0.1 - - [21/May/2018:16:24:37 +0530] "GET /WebApplication/ HTTP/1.1" 200 519
+127.0.0.1 - - [21/May/2018:16:24:41 +0530] "POST /WebApplication/goLogin HTTP/1.1" 200 -
+127.0.0.1 - - [21/May/2018:16:26:29 +0530] "GET / HTTP/1.1" 404 1073
+127.0.0.1 - - [21/May/2018:16:26:30 +0530] "GET /WebApplication/ HTTP/1.1" 200 519
+127.0.0.1 - - [21/May/2018:16:26:32 +0530] "POST /WebApplication/goLogin HTTP/1.1" 200 -
+127.0.0.1 - - [21/May/2018:18:32:02 +0530] "GET / HTTP/1.1" 404 1073
+127.0.0.1 - - [21/May/2018:18:32:02 +0530] "GET /WebApplication/ HTTP/1.1" 200 535
+127.0.0.1 - - [21/May/2018:18:32:07 +0530] "POST /WebApplication/goLogin HTTP/1.1" 200 -

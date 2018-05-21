@@ -1,0 +1,75 @@
+package com.bridgeit.controller;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class LoginController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		String Email = request.getParameter("email");
+		String Password = request.getParameter("pass");
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection connection=null;
+		PreparedStatement preparedStatement=null;
+		
+		String sql = "select * from loginAuthentication  where email=? and password=?";
+		try {
+
+			
+			connection = DriverManager.getConnection("jdbc:mysql://localhost:demo", "pushpa", "pushpa1992");
+
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, Email);
+			preparedStatement.setString(2, Password);
+
+			ResultSet resultSet = preparedStatement.executeQuery();
+			if (resultSet.next()) {
+				String uname=resultSet.getString(1);
+				System.out.println("Athentication successful welcome" +uname);
+			} else {
+				System.out.println("authentication failed please try again");
+			}
+
+		} catch (SQLException | ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		finally {
+			if(preparedStatement!=null)
+			{
+				try {
+					preparedStatement.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			if(connection!=null)
+			{
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+
+	}
+
+}
